@@ -2,6 +2,13 @@
 
 Piccolo framework PHP per gestire progetti semplici
 
+## Prima di iniziare
+
+ricordati di copiare il file di configurazione
+```
+cp etc/.env.dist etc/.env
+```
+
 ## Creazione migrazioni
 
 ```
