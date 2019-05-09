@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/init.php';
+
+use Symfony\Component\Console\CommandLoader\FactoryCommandLoader;
+
+\Sys\Context::setConfig(new \Config\Cli());
+
+$application = new \Symfony\Component\Console\Application();
+
+$commands = require_once ETC_PATH . '/commands.php';
+
+$application->setCommandLoader(new FactoryCommandLoader($commands));
+
+$application->run();

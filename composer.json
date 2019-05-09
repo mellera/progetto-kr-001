@@ -1,0 +1,7 @@
+{
+    "name": "mellera/progetto-kr-001",
+    "type": "project",
+    "require": {
+        "mellera/progetto-kr-007": "latest"
+    }
+}

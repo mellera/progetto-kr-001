@@ -1,0 +1,12 @@
+/nbproject
+
+/var/logs/*
+!/var/logs/.gitkeep
+
+/vendor
+
+/node_modules
+
+/assets
+
+/etc/.env
