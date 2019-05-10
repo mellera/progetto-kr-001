@@ -3,5 +3,10 @@
     "type": "project",
     "require": {
         "mellera/progetto-kr-007": "0.0.1"
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "boot/cli install"
+        ]
     }
 }
