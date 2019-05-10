@@ -22,7 +22,7 @@ class Install extends Command
 
         $this->cleanTemplates();
 
-        unlink(__FILE__);
+        $this->close();
     }
 
     private function replaceComposerJson()
@@ -47,8 +47,12 @@ class Install extends Command
 
     private function cleanTemplates()
     {
-        unlink(ROOT_PATH . '/templates/commands.php');
-        unlink(ROOT_PATH . '/templates');
+        rmdir(ROOT_PATH . '/templates');
+    }
+
+    private function close()
+    {
+        unlink(__FILE__);
     }
 
 }
