@@ -16,7 +16,31 @@ class Install extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        file_put_contents(ROOT_PATH . '/prova.log', 'contenuto file di prova');
+        $this->replaceComposerJson();
+
+        $this->resetCommands();
+    }
+
+    private function replaceComposerJson()
+    {
+        $filename = ROOT_PATH . '/composer.json';
+
+        unlink($filename);
+
+        $composer = array(
+            "require" => array(
+                "mellera/progetto-kr-007" => "0.0.1"
+            )
+        );
+
+        file_put_contents($filename, json_encode($composer));
+    }
+
+    private function resetCommands()
+    {
+        rename(ROOT_PATH . '/templates/commands.php', ETC_PATH . '/commands.php');
+
+        unlink(_FILE__);
     }
 
 }
