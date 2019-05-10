@@ -19,6 +19,10 @@ class Install extends Command
         $this->replaceComposerJson();
 
         $this->resetCommands();
+
+        $this->cleanTemplates();
+
+        unlink(__FILE__);
     }
 
     private function replaceComposerJson()
@@ -33,14 +37,18 @@ class Install extends Command
             )
         );
 
-        file_put_contents($filename, json_encode($composer));
+        file_put_contents($filename, json_encode($composer, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
     }
 
     private function resetCommands()
     {
         rename(ROOT_PATH . '/templates/commands.php', ETC_PATH . '/commands.php');
+    }
 
-        unlink(_FILE__);
+    private function cleanTemplates()
+    {
+        unlink(ROOT_PATH . '/templates/commands.php');
+        unlink(ROOT_PATH . '/templates');
     }
 
 }
