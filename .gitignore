@@ -10,3 +10,5 @@
 /assets
 
 /etc/.env
+
+/storage/db/db.sqlite
