@@ -5,6 +5,7 @@ define('ROOT_PATH', dirname(__DIR__));
 define('VAR_PATH', ROOT_PATH . '/var');
 define('SRC_PATH', ROOT_PATH . '/src');
 define('ETC_PATH', ROOT_PATH . '/etc');
+define('TMP_PATH', ROOT_PATH . '/tmp');
 define('BOOT_PATH', ROOT_PATH . '/boot');
 define('ASSETS_PATH', ROOT_PATH . '/assets');
 define('ROUTES_PATH', ETC_PATH . '/routes');

@@ -3,6 +3,9 @@
 /var/logs/*
 !/var/logs/.gitkeep
 
+/tmp/*
+!/tmp/.gitkeep
+
 /vendor
 
 /node_modules
