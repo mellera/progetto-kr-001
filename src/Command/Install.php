@@ -33,7 +33,7 @@ class Install extends Command
 
         $composer = array(
             "require" => array(
-                "mellera/progetto-kr-007" => "0.0.1"
+                "mellera/progetto-kr-007" => "0.0.3"
             )
         );
 
