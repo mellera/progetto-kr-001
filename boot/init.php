@@ -53,7 +53,7 @@ set_error_handler(function ($errNo, $errStr, $errFile, $errLine) {
             $errDescription = $errNo;
         }
 
-        \Sys\Context::logger()->error('[ ' . $errDescription . ' ][ ' . $errFile . '::' . $errLine . ' ] ' . $errStr);
+        \Log::error('[ ' . $errDescription . ' ][ ' . $errFile . '::' . $errLine . ' ] ' . $errStr);
 
         return true;
     } catch (\Throwable $ex) {
@@ -63,11 +63,14 @@ set_error_handler(function ($errNo, $errStr, $errFile, $errLine) {
 
 set_exception_handler(function (\Throwable $ex) {
     try {
-        \Sys\Context::logger()->error('[ EXCEPTION ][ ' . $ex->getFile() . '::' . $ex->getLine() . ' ] ' . $ex->getMessage() . PHP_EOL . $ex->getTraceAsString());
+        \Log::exception($ex);
+
         \Sys\Context::handleException($ex);
     } catch (\Throwable $ex1) {
         http_response_code(500);
+
         echo $ex->getMessage() . PHP_EOL;
+
         // Gestire eccezione nel gestire l'eccezione (rimandando ad una pagina /500.html o una risposta JSON formattata in caso di API)
     }
 });

@@ -32,7 +32,7 @@ abstract class Base
 
     public function save()
     {
-        Context::logger()->info('Save entity ' . get_class($this));
+        \Log::info('Save entity ' . get_class($this));
 
         Context::em()->persist($this);
         Context::em()->flush();
@@ -40,7 +40,7 @@ abstract class Base
 
     public function delete()
     {
-        Context::logger()->info('Delete entity ' . get_class($this) . '(ID ' . $this->getId() . ')');
+        \Log::info('Delete entity ' . get_class($this) . '(ID ' . $this->getId() . ')');
 
         Context::em()->remove($this);
         Context::em()->flush();
