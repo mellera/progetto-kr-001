@@ -2,7 +2,7 @@
     "name": "mellera/progetto-kr-001",
     "type": "project",
     "require": {
-        "mellera/progetto-kr-007": "0.0.5"
+        "mellera/progetto-kr-007": "0.0.6"
     },
     "scripts": {
         "post-create-project-cmd": [
