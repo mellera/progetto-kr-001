@@ -7,10 +7,9 @@ define('SRC_PATH', ROOT_PATH . '/src');
 define('ETC_PATH', ROOT_PATH . '/etc');
 define('TMP_PATH', ROOT_PATH . '/tmp');
 define('BOOT_PATH', ROOT_PATH . '/boot');
-define('ASSETS_PATH', ROOT_PATH . '/assets');
 define('ROUTES_PATH', ETC_PATH . '/routes');
 define('RESOURCES_PATH', ROOT_PATH . '/resources');
-
+define('ASSETS_PATH', RESOURCES_PATH . '/assets');
 define('VIEWS_PATH', RESOURCES_PATH . '/views');
 
 require_once ROOT_PATH . '/vendor/autoload.php';

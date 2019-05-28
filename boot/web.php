@@ -33,7 +33,7 @@ $dispatcher->addListener(KernelEvents::REQUEST, array(new \Sys\Listener\Router(n
 $dispatcher->addListener(KernelEvents::VIEW, array(new \Sys\Listener\Web\View(), 'onKernelView'));
 
 // Gestione delle eccezioni personalizzata
-$dispatcher->addListener(KernelEvents::EXCEPTION, array(new \Sys\Listener\Exception(), 'onKernelException'));
+$dispatcher->addListener(KernelEvents::EXCEPTION, array(new \Sys\Listener\Web\Exception(), 'onKernelException'));
 
 // Kernel per la gestione della chiamata
 $kernel = new HttpKernel($dispatcher, new ControllerResolver(\Sys\Context::logger()), new RequestStack(), new ArgumentResolver());

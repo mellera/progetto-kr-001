@@ -24,22 +24,13 @@ $routes = $loader->load('api.php');
 $dispatcher = new EventDispatcher();
 
 // Recupero classe che gestirà la richiesta con tutte le informazioni necessarie
-$dispatcher->addListener(KernelEvents::REQUEST, array(new \Sys\Listener\Router(new \Sys\Router\RequestMatcher($routes)), 'onKernelRequest'));
-
-// Controlla il token di autenticazione se necessario
-$dispatcher->addListener(KernelEvents::REQUEST, array(new \Sys\Listener\Token(), 'onKernelRequest'), -10);
-
-// Controlla i permessi relativi alla chiamata se necessario
-$dispatcher->addListener(KernelEvents::REQUEST, array(new \Sys\Listener\Permission(), 'onKernelRequest'), -20);
-
-// Controlla la struttura della chiamata se necessario
-$dispatcher->addListener(KernelEvents::REQUEST, array(new \Sys\Listener\RequestValidator(), 'onKernelRequest'), -30);
+$dispatcher->addListener(KernelEvents::REQUEST, array(new \Sys\Listener\Router(new \Sys\Router\RequestMatcher($routes)), 'onKernelRequest'), -10);
 
 // Logga la chiamata
-$dispatcher->addListener(KernelEvents::REQUEST, array(new \Sys\Listener\RequestLogger(), 'onKernelRequest'), -40);
+$dispatcher->addListener(KernelEvents::REQUEST, array(new \Sys\Listener\Api\RequestLogger(), 'onKernelRequest'), -20);
 
 // Gestione delle eccezioni personalizzata
-$dispatcher->addListener(KernelEvents::EXCEPTION, array(new \Sys\Listener\Exception(), 'onKernelException'));
+$dispatcher->addListener(KernelEvents::EXCEPTION, array(new \Sys\Listener\Api\Exception(), 'onKernelException'));
 
 // Kernel per la gestione della chiamata
 $kernel = new HttpKernel($dispatcher, new ControllerResolver(\Sys\Context::logger()), new RequestStack(), new ArgumentResolver());

@@ -14,7 +14,12 @@ abstract class Base
      */
     protected $id;
 
-    public function setId($id)
+    /**
+     * 
+     * @param string $id
+     * @return $this
+     */
+    public function setId(string $id)
     {
         $this->id = $id;
 
