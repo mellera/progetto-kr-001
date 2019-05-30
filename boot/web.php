@@ -14,6 +14,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 \Sys\Context::setConfig(new \Config\Web());
 
+\Sys\Context::init();
+
 // Loader per i file delle route
 $loader = new PhpFileLoader(new FileLocator(array(ROUTES_PATH)));
 

@@ -5,6 +5,8 @@ require_once __DIR__ . '/init.php';
 
 \Sys\Context::setConfig(new \Config\Phinx());
 
+\Sys\Context::init();
+
 $application = new \Phinx\Console\PhinxApplication();
 
 $application->run();
